@@ -86,6 +86,7 @@
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary * response = (NSDictionary*) responseObject;
         self.emprestimos = response[@"loans"];
+        [self.tableView reloadData];
         NSLog(@"Emprestimos: %@", self.emprestimos);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
